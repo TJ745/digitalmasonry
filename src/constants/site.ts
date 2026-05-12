@@ -3,21 +3,22 @@ export const siteConfig = {
   tagline: "We Build Digital Products That Scale.",
   description:
     "DigitalMasonry is a full-stack software studio helping startups and businesses design and engineer world-class digital products — from idea to launch and beyond.",
-  url: "https://digitalmasonry.dev",
-  email: "hello@digitalmasonry.dev",
+  url: "https://digitalmasonry.co.uk",
+  email: "thedigitalmasonry@gmail.com",
   phone: "+1 (415) 555-0192",
-  location: "San Francisco, CA — Remote-first",
+  location: "London, UK — Remote-first",
   availability: "Accepting new clients",
-  calendarUrl: "https://cal.com/digitalmasonry",
+  calendarUrl: "https://digitalmasonry",
   socials: {
-    twitter: "https://twitter.com/digitalmasonry",
-    linkedin: "https://linkedin.com/company/digitalmasonry",
-    github: "https://github.com/digitalmasonry",
-    dribbble: "https://dribbble.com/digitalmasonry",
+    facebook:  "https://facebook.com/digitalmasonry",
+    twitter:   "https://x.com/digitalmasonry",
+    instagram: "https://instagram.com/digitalmasonry",
+    linkedin:  "https://linkedin.com/company/digitalmasonry",
   },
 } as const;
 
 export const navLinks = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
@@ -26,7 +27,7 @@ export const navLinks = [
 
 export const stats = [
   { value: 10, suffix: "+", label: "Projects Delivered" },
-  { value: 5, suffix: "+", label: "Years Experience" },
+  { value: 2, suffix: "+", label: "Years Experience" },
   { value: 99, suffix: "%", label: "Client Satisfaction" },
   { value: 40, suffix: "+", label: "Technologies" },
 ] as const;
@@ -536,10 +537,10 @@ export const faqs = [
 ] as const;
 
 export const budgetRanges = [
-  "Under $10,000",
-  "$10,000 – $25,000",
-  "$25,000 – $50,000",
-  "$50,000 – $100,000",
-  "$100,000+",
+  "Under $1,000",
+  "$1,000 – $2,000",
+  "$2,000 – $5,000",
+  "$5,000 – $10,000",
+  "$10,000+",
   "Not sure yet",
 ] as const;

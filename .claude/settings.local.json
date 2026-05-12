@@ -4,7 +4,14 @@
       "Bash(npm install *)",
       "Bash(npm list *)",
       "Bash(npx tsc *)",
-      "Bash(powershell -Command ' *)"
+      "Bash(powershell -Command ' *)",
+      "Bash(node -e \"const p=require\\('./node_modules/react-icons/package.json'\\); console.log\\(p.version\\)\" --prefix \"d:/Data/Portfolio Projects/13-digitalmasonry\")",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/react-icons/package.json'\\).version\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(mkdir -p \"d:/Data/Portfolio Projects/13-digitalmasonry/src/app/api/contact\")"
+    ],
+    "additionalDirectories": [
+      "d:\\Data\\Portfolio Projects\\13-digitalmasonry\\src\\app\\api"
     ]
   }
 }

@@ -8,6 +8,7 @@ import { Menu, X, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navLinks, siteConfig } from "@/constants/site";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -20,11 +21,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setMobileOpen(false); }, [pathname]);
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileOpen]);
 
   return (
@@ -37,7 +42,7 @@ export function Navbar() {
           "fixed top-0 inset-x-0 z-50 transition-all duration-500",
           scrolled
             ? "bg-zinc-950/85 backdrop-blur-2xl shadow-2xl shadow-black/30"
-            : "bg-transparent"
+            : "bg-transparent",
         )}
       >
         {/* Shimmer border-bottom — only visible when scrolled */}
@@ -61,8 +66,8 @@ export function Navbar() {
               className="flex items-center gap-2.5 group shrink-0"
               aria-label={siteConfig.name}
             >
-              <div className="w-8 h-8 rounded-lg bg-linear-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:shadow-indigo-500/45 group-hover:scale-105 transition-all duration-300">
-                <Layers size={15} className="text-white" />
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:shadow-indigo-500/45 group-hover:scale-105 transition-all duration-300">
+                <Image src="/logo.png" alt="alt" width={60} height={60} />
               </div>
               <span className="font-bold text-white text-[15px] tracking-tight">
                 Digital<span className="text-indigo-400">Masonry</span>
@@ -70,7 +75,10 @@ export function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-0.5" aria-label="Main navigation">
+            <nav
+              className="hidden md:flex items-center gap-0.5"
+              aria-label="Main navigation"
+            >
               {navLinks.map((link) => {
                 const active = pathname === link.href;
                 return (
@@ -79,9 +87,7 @@ export function Navbar() {
                     href={link.href}
                     className={cn(
                       "relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200",
-                      active
-                        ? "text-white"
-                        : "text-zinc-400 hover:text-white"
+                      active ? "text-white" : "text-zinc-400 hover:text-white",
                     )}
                   >
                     {/* Hover / active background */}
@@ -89,7 +95,11 @@ export function Navbar() {
                       <motion.span
                         layoutId="nav-pill"
                         className="absolute inset-0 rounded-lg bg-white/8"
-                        transition={{ type: "spring", stiffness: 350, damping: 35 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 350,
+                          damping: 35,
+                        }}
                       />
                     ) : (
                       <span className="absolute inset-0 rounded-lg hover:bg-white/5 transition-colors duration-200" />
@@ -100,7 +110,11 @@ export function Navbar() {
                       <motion.span
                         layoutId="nav-dot"
                         className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-indigo-400"
-                        transition={{ type: "spring", stiffness: 350, damping: 35 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 350,
+                          damping: 35,
+                        }}
                       />
                     )}
 
@@ -112,11 +126,25 @@ export function Navbar() {
 
             {/* Desktop CTAs */}
             <div className="hidden md:flex items-center gap-2.5 shrink-0">
-              <Button variant="ghost" size="sm" asChild className="text-zinc-400 hover:text-white">
+              <Button
+                variant="ghost"
+                size="sm"
+                asChild
+                className="text-zinc-400 hover:text-white"
+              >
                 <Link href="/contact">Start a Project</Link>
               </Button>
-              <Button size="sm" variant="gradient" asChild className="shadow-sm shadow-indigo-500/20">
-                <Link href={siteConfig.calendarUrl} target="_blank" rel="noopener noreferrer">
+              <Button
+                size="sm"
+                variant="gradient"
+                asChild
+                className="shadow-sm shadow-indigo-500/20"
+              >
+                <Link
+                  href={siteConfig.calendarUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Book a Call
                 </Link>
               </Button>
@@ -218,7 +246,7 @@ export function Navbar() {
                         "flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-200",
                         pathname === link.href
                           ? "text-white bg-white/8 border border-white/8"
-                          : "text-zinc-400 hover:text-white hover:bg-white/5"
+                          : "text-zinc-400 hover:text-white hover:bg-white/5",
                       )}
                     >
                       {pathname === link.href && (
@@ -236,7 +264,11 @@ export function Navbar() {
                   <Link href="/contact">Start a Project</Link>
                 </Button>
                 <Button variant="gradient" className="w-full" asChild>
-                  <Link href={siteConfig.calendarUrl} target="_blank" rel="noopener noreferrer">
+                  <Link
+                    href={siteConfig.calendarUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Book a Call
                   </Link>
                 </Button>

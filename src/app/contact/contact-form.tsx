@@ -58,31 +58,54 @@ export function ContactForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validate()) return;
 
     setLoading(true);
 
-    // Mock API call
-    await new Promise((resolve) => setTimeout(resolve, 1800));
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, service }),
+      });
 
-    setLoading(false);
-    setForm(initialState);
-    setService("");
+      const data = await res.json() as { error?: string };
 
-    toast.success("Message sent!", {
-      description:
-        "Thanks for reaching out. We'll get back to you within 24 hours.",
-    });
+      if (!res.ok) {
+        toast.error("Failed to send", {
+          description: data.error ?? "Something went wrong. Please try again.",
+        });
+        return;
+      }
+
+      setForm(initialState);
+      setService("");
+      toast.success("Message sent!", {
+        description:
+          "Thanks for reaching out. We'll get back to you within 24 hours.",
+      });
+    } catch {
+      toast.error("Network error", {
+        description:
+          "Could not reach the server. Please check your connection and try again.",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleChange = (field: keyof FormState) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setForm((prev) => ({ ...prev, [field]: e.target.value }));
-    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
-  };
+  const handleChange =
+    (field: keyof FormState) =>
+    (
+      e: React.ChangeEvent<
+        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      >,
+    ) => {
+      setForm((prev) => ({ ...prev, [field]: e.target.value }));
+      if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
+    };
 
   return (
     <motion.div
@@ -94,7 +117,8 @@ export function ContactForm() {
       <div className="mb-8">
         <h2 className="text-xl font-bold text-white mb-2">Start a Project</h2>
         <p className="text-sm text-zinc-500">
-          Fill in the details below and we&apos;ll craft a tailored proposal for you.
+          Fill in the details below and we&apos;ll craft a tailored proposal for
+          you.
         </p>
       </div>
 
@@ -114,7 +138,9 @@ export function ContactForm() {
               aria-invalid={!!errors.name}
             />
             {errors.name && (
-              <p id="name-error" className="text-xs text-red-400">{errors.name}</p>
+              <p id="name-error" className="text-xs text-red-400">
+                {errors.name}
+              </p>
             )}
           </div>
           <div className="space-y-1.5">
@@ -131,7 +157,9 @@ export function ContactForm() {
               aria-invalid={!!errors.email}
             />
             {errors.email && (
-              <p id="email-error" className="text-xs text-red-400">{errors.email}</p>
+              <p id="email-error" className="text-xs text-red-400">
+                {errors.email}
+              </p>
             )}
           </div>
         </div>
@@ -198,17 +226,21 @@ export function ContactForm() {
             placeholder="Tell us about your project — what you're building, your goals, timeline, and any specific requirements..."
             value={form.message}
             onChange={handleChange("message")}
-            className="min-h-[140px]"
+            className="min-h-35"
             aria-describedby={errors.message ? "message-error" : undefined}
             aria-invalid={!!errors.message}
           />
           <div className="flex items-center justify-between">
             {errors.message ? (
-              <p id="message-error" className="text-xs text-red-400">{errors.message}</p>
+              <p id="message-error" className="text-xs text-red-400">
+                {errors.message}
+              </p>
             ) : (
               <span />
             )}
-            <span className="text-xs text-zinc-600">{form.message.length} / 2000</span>
+            <span className="text-xs text-zinc-600">
+              {form.message.length} / 2000
+            </span>
           </div>
         </div>
 

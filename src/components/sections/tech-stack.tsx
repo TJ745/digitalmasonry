@@ -1,6 +1,23 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
+import { Cloud, Smartphone } from "lucide-react";
+import {
+  SiNextdotjs,
+  SiReact,
+  SiTypescript,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiPython,
+  SiPostgresql,
+  SiMongodb,
+  SiPrisma,
+  SiVercel,
+  SiDocker,
+  SiFigma,
+  SiOpenai,
+  SiStripe,
+} from "react-icons/si";
 import { SectionHeading } from "@/components/section-heading";
 import { techStack } from "@/constants/site";
 
@@ -19,6 +36,27 @@ const categoryColors: Record<string, string> = {
   DevOps: "text-red-400 border-red-500/20 bg-red-500/5",
 };
 
+// AWS has no Simple Icon (Amazon prohibits third-party use of their logo).
+// React Native has no dedicated icon — Smartphone conveys mobile clearly.
+const techIcons: Record<string, React.ElementType> = {
+  "Next.js": SiNextdotjs,
+  "React": SiReact,
+  "TypeScript": SiTypescript,
+  "TailwindCSS": SiTailwindcss,
+  "Node.js": SiNodedotjs,
+  "Python": SiPython,
+  "PostgreSQL": SiPostgresql,
+  "MongoDB": SiMongodb,
+  "Prisma": SiPrisma,
+  "AWS": Cloud,
+  "Vercel": SiVercel,
+  "Docker": SiDocker,
+  "React Native": Smartphone,
+  "Figma": SiFigma,
+  "OpenAI": SiOpenai,
+  "Stripe": SiStripe,
+};
+
 export function TechStack() {
   const doubled = [...techStack, ...techStack];
 
@@ -34,19 +72,19 @@ export function TechStack() {
 
         {/* Marquee wrapper */}
         <div className="relative overflow-hidden">
-          {/* Fade edges */}
           <div className="absolute left-0 top-0 bottom-0 w-16 bg-linear-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-16 bg-linear-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
 
           <div className="flex animate-marquee gap-3 w-max">
             {doubled.map((tech, i) => {
               const colorClass = categoryColors[tech.category] ?? "text-zinc-400 border-zinc-700 bg-zinc-800/40";
+              const Icon = techIcons[tech.name];
               return (
                 <div
                   key={`${tech.name}-${i}`}
                   className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl border text-sm font-medium whitespace-nowrap transition-all duration-200 hover:-translate-y-0.5 ${colorClass}`}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70 shrink-0" />
+                  {Icon && <Icon size={15} className="shrink-0 opacity-80" />}
                   {tech.name}
                   <span className="text-xs opacity-50">{tech.category}</span>
                 </div>
@@ -59,6 +97,7 @@ export function TechStack() {
         <div className="hidden lg:grid grid-cols-8 gap-2">
           {techStack.map((tech, i) => {
             const colorClass = categoryColors[tech.category] ?? "text-zinc-400 border-zinc-700 bg-zinc-800/40";
+            const Icon = techIcons[tech.name];
             return (
               <motion.div
                 key={tech.name}
@@ -66,9 +105,9 @@ export function TechStack() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.03 }}
-                className={`flex flex-col items-center gap-1.5 p-3 rounded-xl border text-center text-xs ${colorClass} hover:-translate-y-1 transition-transform duration-200 cursor-default`}
+                className={`flex flex-col items-center gap-2 p-3 rounded-xl border text-center text-xs ${colorClass} hover:-translate-y-1 transition-transform duration-200 cursor-default`}
               >
-                <span className="w-2 h-2 rounded-full bg-current opacity-60" />
+                {Icon && <Icon size={20} className="opacity-80" />}
                 <span className="font-medium text-[11px] leading-tight">{tech.name}</span>
               </motion.div>
             );

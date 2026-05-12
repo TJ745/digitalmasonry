@@ -3,7 +3,8 @@ import { siteConfig } from "@/constants/site";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "DigitalMasonry Terms of Service — the terms governing your use of our website and services.",
+  description:
+    "DigitalMasonry Terms of Service — the terms governing your use of our website and services.",
 };
 
 export default function TermsPage() {
@@ -15,9 +16,16 @@ export default function TermsPage() {
             <span className="w-1 h-1 rounded-full bg-indigo-400" />
             Legal
           </div>
-          <h1 className="text-4xl font-black tracking-tight text-white">Terms of Service</h1>
+          <h1 className="text-4xl font-black tracking-tight text-white">
+            Terms of Service
+          </h1>
           <p className="text-zinc-500 text-sm">
-            Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+            Last updated:{" "}
+            {new Date().toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
           </p>
         </div>
 
@@ -25,7 +33,7 @@ export default function TermsPage() {
           {[
             {
               title: "1. Acceptance of Terms",
-              content: `By accessing and using the DigitalMasonry website (digitalmasonry.dev) and engaging our services, you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use our services.`,
+              content: `By accessing and using the DigitalMasonry website (digitalmasonry.co.uk) and engaging our services, you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use our services.`,
             },
             {
               title: "2. Services",
@@ -57,7 +65,7 @@ export default function TermsPage() {
             },
             {
               title: "9. Governing Law",
-              content: `These Terms of Service are governed by the laws of the State of California, United States. Any disputes shall be resolved through binding arbitration in San Francisco, California.`,
+              content: `These Terms of Service are governed by the laws of England and Wales. Any disputes arising out of or relating to these Terms shall be resolved through binding arbitration in London, United Kingdom.`,
             },
             {
               title: "10. Changes to Terms",

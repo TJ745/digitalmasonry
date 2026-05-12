@@ -41,43 +41,43 @@ const values = [
 
 const timeline = [
   {
-    year: "2025",
+    year: "Apr, 2024",
     title: "Founded",
     description:
       "Started as a two-person consultancy focused on React applications for Series A startups.",
   },
   {
-    year: "2025",
+    year: "Mar, 2025",
     title: "First SaaS Launch",
     description:
       "Shipped our first SaaS platform from scratch, growing to 1,000 users in 60 days.",
   },
   {
-    year: "2025",
+    year: "May, 2025",
     title: "Mobile Practice",
     description:
       "Expanded into React Native mobile development, shipping 2 apps across iOS and Android.",
   },
   {
-    year: "2025",
+    year: "Jun, 2025",
     title: "Team of 5",
     description:
       "Grew to a 5-person remote team across 3 countries. 10+ projects delivered.",
   },
   {
-    year: "2025",
+    year: "Aug, 2025",
     title: "AI Integration Practice",
     description:
       "Launched our AI integration practice, building some of the earliest production LLM products.",
   },
   {
-    year: "2025",
+    year: "Oct, 2025",
     title: "Enterprise Clients",
     description:
       "Onboarded first Fortune 40+ clients, delivering enterprise-grade platforms at scale.",
   },
   {
-    year: "2026",
+    year: "Feb, 2026",
     title: "10+ Projects",
     description:
       "Hit the milestone of 10+ shipped projects with a 99% client satisfaction rate.",
@@ -86,25 +86,25 @@ const timeline = [
 
 const team = [
   {
-    name: "Alex Rivera",
+    name: "Ahmed Riaz",
     role: "Co-founder & CEO",
     bio: "Former engineering lead at Stripe. 10+ years building fintech and SaaS products.",
     initials: "AR",
     color: "from-indigo-500 to-violet-600",
   },
   {
-    name: "Jordan Kim",
+    name: "Talha Jamil",
     role: "Co-founder & CTO",
     bio: "Ex-staff engineer at Linear. Obsessed with developer experience and system design.",
-    initials: "JK",
+    initials: "TJ",
     color: "from-violet-500 to-purple-600",
   },
   {
-    name: "Maya Patel",
+    name: "Rohail Tariq",
     role: "Head of Design",
     bio: "Former principal designer at Figma. Creates interfaces that are beautiful and conversion-optimized.",
-    initials: "MP",
-    color: "from-pink-500 to-rose-600",
+    initials: "RT",
+    color: "from-sky-500 to-blue-600",
   },
   {
     name: "Sam Chen",
@@ -119,13 +119,6 @@ const team = [
     bio: "ML engineer turned product builder. Leads all LLM integrations and AI workflow automation.",
     initials: "AW",
     color: "from-amber-500 to-orange-600",
-  },
-  {
-    name: "Priya Sharma",
-    role: "Mobile Lead",
-    bio: "React Native expert who has shipped 20+ apps to the App Store and Google Play.",
-    initials: "PS",
-    color: "from-sky-500 to-blue-600",
   },
 ];
 
@@ -289,35 +282,37 @@ export function AboutContent() {
             titleHighlight="shipping great software."
           />
 
-          <div className="relative">
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-linear-to-b from-indigo-500/50 via-violet-500/30 to-transparent" />
+          <div className="space-y-0">
+            {timeline.map((item, i) => (
+              <motion.div
+                key={item.year}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="relative flex items-start gap-8 pb-10 last:pb-0"
+              >
+                {/* Connector: top-6 = this badge's center, -bottom-6 = next badge's center */}
+                {i < timeline.length - 1 && (
+                  <div className="absolute left-6 top-12 bottom-0 w-px bg-linear-to-b from-indigo-500/40 to-violet-500/20" />
+                )}
 
-            <div className="space-y-0">
-              {timeline.map((item, i) => (
-                <motion.div
-                  key={item.year}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="relative flex gap-8 pb-10 last:pb-0"
-                >
-                  <div className="relative z-10 flex items-start justify-center">
-                    <div className="w-12 h-12 rounded-xl border border-indigo-500/30 bg-indigo-500/10 flex items-center justify-center shrink-0">
-                      <span className="text-xs font-bold text-indigo-400">
-                        {item.year}
-                      </span>
-                    </div>
+                {/* Year badge */}
+                <div className="relative z-10 shrink-0">
+                  <div className="w-12 h-12 rounded-xl border border-indigo-500/30 bg-indigo-500/10 flex items-center justify-center text-center">
+                    <span className="text-xs font-bold text-indigo-400">
+                      {item.year}
+                    </span>
                   </div>
-                  <div className="pt-2.5 space-y-1">
-                    <h3 className="text-sm font-bold text-white">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-zinc-500">{item.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+
+                {/* Content */}
+                <div className="pt-2.5 space-y-1">
+                  <h3 className="text-sm font-bold text-white">{item.title}</h3>
+                  <p className="text-sm text-zinc-500">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

@@ -17,7 +17,7 @@ const TRUST = [
 const STATS = [
   { value: "10+", label: "Projects" },
   { value: "99%", label: "Satisfaction" },
-  { value: "5+", label: "Years" },
+  { value: "2+", label: "Years" },
   { value: "40+", label: "Technologies" },
 ] as const;
 
@@ -214,9 +214,7 @@ export function FinalCTA() {
                         <div className="text-xs font-semibold text-white">
                           Sarah Chen
                         </div>
-                        <div className="text-xs text-zinc-500">
-                          CEO, Apex Analytics
-                        </div>
+                        <div className="text-xs text-zinc-500">CEO</div>
                       </div>
                     </div>
                   </motion.div>

@@ -1,6 +1,9 @@
 import Link from "next/link";
-import { Layers, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { FaFacebook, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import type { IconType } from "react-icons";
 import { siteConfig } from "@/constants/site";
+import Image from "next/image";
 
 const footerLinks = {
   Services: [
@@ -20,11 +23,11 @@ const footerLinks = {
   ],
 };
 
-const socials = [
-  { label: "X / Twitter", href: siteConfig.socials.twitter, abbr: "X" },
-  { label: "LinkedIn", href: siteConfig.socials.linkedin, abbr: "in" },
-  { label: "GitHub", href: siteConfig.socials.github, abbr: "gh" },
-  { label: "Dribbble", href: siteConfig.socials.dribbble, abbr: "db" },
+const socials: Array<{ label: string; href: string; icon: IconType }> = [
+  { label: "Facebook",  href: siteConfig.socials.facebook,  icon: FaFacebook  },
+  { label: "X / Twitter", href: siteConfig.socials.twitter, icon: FaXTwitter  },
+  { label: "Instagram", href: siteConfig.socials.instagram, icon: FaInstagram },
+  { label: "LinkedIn",  href: siteConfig.socials.linkedin,  icon: FaLinkedinIn },
 ];
 
 export function Footer() {
@@ -35,8 +38,8 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2 space-y-5">
             <Link href="/" className="flex items-center gap-2.5 w-fit group">
-              <div className="w-9 h-9 rounded-lg bg-linear-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-                <Layers size={17} className="text-white" />
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/30">
+                <Image src="/logo.png" alt="alt" width={60} height={60} />
               </div>
               <span className="font-bold text-white text-xl tracking-tight">
                 Digital<span className="text-indigo-400">Masonry</span>
@@ -44,7 +47,8 @@ export function Footer() {
             </Link>
 
             <p className="text-zinc-400 text-sm leading-relaxed max-w-xs">
-              Full-stack software studio building world-class digital products for startups and businesses.
+              Full-stack software studio building world-class digital products
+              for startups and businesses.
             </p>
 
             <div className="space-y-2.5">
@@ -52,7 +56,10 @@ export function Footer() {
                 href={`mailto:${siteConfig.email}`}
                 className="flex items-center gap-2.5 text-sm text-zinc-400 hover:text-white transition-colors group/email"
               >
-                <Mail size={14} className="text-zinc-600 group-hover/email:text-indigo-400 transition-colors" />
+                <Mail
+                  size={14}
+                  className="text-zinc-600 group-hover/email:text-indigo-400 transition-colors"
+                />
                 {siteConfig.email}
               </a>
               <div className="flex items-center gap-2.5 text-sm text-zinc-500">
@@ -62,16 +69,16 @@ export function Footer() {
             </div>
 
             <div className="flex items-center gap-3 pt-1">
-              {socials.map(({ label, href, abbr }) => (
+              {socials.map(({ label, href, icon: Icon }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-zinc-500 hover:text-white hover:border-white/20 hover:bg-white/10 transition-all duration-200 text-xs font-bold"
+                  className="w-9 h-9 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-zinc-500 hover:text-white hover:border-white/20 hover:bg-white/10 transition-all duration-200"
                 >
-                  {abbr}
+                  <Icon size={16} />
                 </a>
               ))}
             </div>
@@ -128,12 +135,20 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-white/6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-600">
-          <p>© {new Date().getFullYear()} DigitalMasonry. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} DigitalMasonry. All rights reserved.
+          </p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="hover:text-zinc-400 transition-colors">
+            <Link
+              href="/privacy-policy"
+              className="hover:text-zinc-400 transition-colors"
+            >
               Privacy
             </Link>
-            <Link href="/terms" className="hover:text-zinc-400 transition-colors">
+            <Link
+              href="/terms"
+              className="hover:text-zinc-400 transition-colors"
+            >
               Terms
             </Link>
           </div>
