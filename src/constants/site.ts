@@ -25,9 +25,9 @@ export const navLinks = [
 ] as const;
 
 export const stats = [
-  { value: 120, suffix: "+", label: "Projects Delivered" },
-  { value: 6, suffix: "+", label: "Years Experience" },
-  { value: 98, suffix: "%", label: "Client Satisfaction" },
+  { value: 10, suffix: "+", label: "Projects Delivered" },
+  { value: 5, suffix: "+", label: "Years Experience" },
+  { value: 99, suffix: "%", label: "Client Satisfaction" },
   { value: 40, suffix: "+", label: "Technologies" },
 ] as const;
 
@@ -205,7 +205,13 @@ export const services = [
       "Sitemap & robots.txt automation",
       "Meta & Open Graph optimization",
     ],
-    tech: ["Next.js", "next-seo", "Schema.org", "Google Search Console", "Ahrefs"],
+    tech: [
+      "Next.js",
+      "next-seo",
+      "Schema.org",
+      "Google Search Console",
+      "Ahrefs",
+    ],
     featured: false,
   },
   {
@@ -497,7 +503,8 @@ export const faqs = [
       "We work in bi-weekly sprints with regular check-ins. You get access to a shared project tracker, weekly progress updates, and a staging environment to review every build. No black boxes — full transparency throughout.",
   },
   {
-    question: "Do you work with early-stage startups or only established companies?",
+    question:
+      "Do you work with early-stage startups or only established companies?",
     answer:
       "Both. We love working with founders who have a strong vision but need a technical partner to bring it to life. We're also experienced with scaling established products and fixing legacy codebases.",
   },

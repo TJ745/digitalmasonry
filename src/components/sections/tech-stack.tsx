@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/section-heading";
@@ -35,8 +35,8 @@ export function TechStack() {
         {/* Marquee wrapper */}
         <div className="relative overflow-hidden">
           {/* Fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-linear-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-linear-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
 
           <div className="flex animate-marquee gap-3 w-max">
             {doubled.map((tech, i) => {

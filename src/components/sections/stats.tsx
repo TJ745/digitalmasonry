@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
@@ -52,7 +52,7 @@ export function Stats() {
               className="relative glass p-8 md:p-10 flex flex-col gap-2 group hover:bg-white/5 transition-colors duration-300"
             >
               {/* Accent bar on hover */}
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 to-violet-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-t" />
+              <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-indigo-500 to-violet-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-t" />
 
               <Counter value={stat.value} suffix={stat.suffix} />
               <span className="text-sm text-zinc-500 font-medium mt-1">

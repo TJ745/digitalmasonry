@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
@@ -42,16 +42,16 @@ export function ProjectCard({
       {/* Color header band */}
       <div
         className={cn(
-          "h-2 w-full bg-gradient-to-r",
-          color.replace("from-", "from-").replace("to-", "to-")
+          "h-2 w-full bg-linear-to-r",
+          color.replace("from-", "from-").replace("to-", "to-"),
         )}
       />
 
       {/* Gradient overlay */}
       <div
         className={cn(
-          "absolute top-0 left-0 w-full h-40 bg-gradient-to-br opacity-40 pointer-events-none",
-          color
+          "absolute top-0 left-0 w-full h-full bg-linear-to-br opacity-40 pointer-events-none",
+          color,
         )}
       />
 

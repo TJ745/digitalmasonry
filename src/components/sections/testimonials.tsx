@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -36,7 +36,7 @@ export function Testimonials() {
   return (
     <section className="py-24 md:py-32 relative overflow-hidden" aria-label="Testimonials">
       {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-950/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-indigo-950/5 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">

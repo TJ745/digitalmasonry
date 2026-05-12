@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -59,7 +59,7 @@ export function ServiceCards() {
                 {/* Header */}
                 <div className="flex items-start gap-4">
                   <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${gradient} border border-white/10 shrink-0`}
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center bg-linear-to-br ${gradient} border border-white/10 shrink-0`}
                   >
                     <Icon size={22} className="text-white" />
                   </div>

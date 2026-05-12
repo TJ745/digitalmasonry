@@ -21,7 +21,7 @@ const footerLinks = {
 };
 
 const socials = [
-  { label: "X / Twitter", href: siteConfig.socials.twitter, abbr: "𝕏" },
+  { label: "X / Twitter", href: siteConfig.socials.twitter, abbr: "X" },
   { label: "LinkedIn", href: siteConfig.socials.linkedin, abbr: "in" },
   { label: "GitHub", href: siteConfig.socials.github, abbr: "gh" },
   { label: "Dribbble", href: siteConfig.socials.dribbble, abbr: "db" },
@@ -35,7 +35,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2 space-y-5">
             <Link href="/" className="flex items-center gap-2.5 w-fit group">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+              <div className="w-9 h-9 rounded-lg bg-linear-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
                 <Layers size={17} className="text-white" />
               </div>
               <span className="font-bold text-white text-xl tracking-tight">

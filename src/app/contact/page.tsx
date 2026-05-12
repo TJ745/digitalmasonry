@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { ContactForm } from "./contact-form";
 import { Mail, MapPin, Clock, Calendar } from "lucide-react";
 import { siteConfig } from "@/constants/site";
@@ -29,7 +29,7 @@ const contactDetails = [
   {
     icon: Clock,
     label: "Availability",
-    value: "Mon – Fri, 9am – 6pm PST",
+    value: "Mon â€“ Fri, 9am â€“ 6pm PST",
     href: null,
     color: "text-emerald-400",
   },
@@ -68,7 +68,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               {/* Book a call CTA */}
               <div className="glass rounded-2xl p-6 space-y-4 border border-indigo-500/20">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500/20 to-violet-500/20 border border-indigo-500/20 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-linear-to-br from-indigo-500/20 to-violet-500/20 border border-indigo-500/20 flex items-center justify-center">
                   <Calendar size={18} className="text-indigo-400" />
                 </div>
                 <div>

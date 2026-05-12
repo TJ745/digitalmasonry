@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -52,7 +52,7 @@ export function TestimonialCard({
 
       {/* Author */}
       <div className="flex items-center gap-3 pt-4 border-t border-white/8">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white text-sm font-semibold shrink-0">
+        <div className="w-10 h-10 rounded-full bg-linear-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white text-sm font-semibold shrink-0">
           {initials}
         </div>
         <div>

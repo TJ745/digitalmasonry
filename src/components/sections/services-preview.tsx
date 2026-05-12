@@ -1,11 +1,24 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
-  Globe, AppWindow, Smartphone, Cloud, Palette, Rocket,
-  Shield, Link as LinkIcon, Server, Gauge, Search,
-  ShoppingCart, LayoutDashboard, Brain, Workflow, ArrowRight,
+  Globe,
+  AppWindow,
+  Smartphone,
+  Cloud,
+  Palette,
+  Rocket,
+  Shield,
+  Link as LinkIcon,
+  Server,
+  Gauge,
+  Search,
+  ShoppingCart,
+  LayoutDashboard,
+  Brain,
+  Workflow,
+  ArrowRight,
 } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/ui/button";
@@ -13,9 +26,21 @@ import { featuredServices } from "@/constants/site";
 import { cn } from "@/lib/utils";
 
 const iconMap: Record<string, React.ElementType> = {
-  Globe, AppWindow, Smartphone, Cloud, Palette, Rocket,
-  Shield, Link: LinkIcon, Server, Gauge, Search,
-  ShoppingCart, LayoutDashboard, Brain, Workflow,
+  Globe,
+  AppWindow,
+  Smartphone,
+  Cloud,
+  Palette,
+  Rocket,
+  Shield,
+  Link: LinkIcon,
+  Server,
+  Gauge,
+  Search,
+  ShoppingCart,
+  LayoutDashboard,
+  Brain,
+  Workflow,
 };
 
 const gradients = [
@@ -67,24 +92,24 @@ export function ServicesPreview() {
                 {/* Background gradient on hover */}
                 <div
                   className={cn(
-                    "absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl",
-                    gradient
+                    "absolute inset-0 bg-linear-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl",
+                    gradient,
                   )}
                   style={{ opacity: 0 }}
                 />
                 <div
                   className={cn(
-                    "absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none",
-                    gradient
+                    "absolute top-0 right-0 w-full h-full bg-linear-to-bl rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none",
+                    gradient,
                   )}
                 />
 
                 {/* Icon */}
                 <div
                   className={cn(
-                    "w-11 h-11 rounded-xl flex items-center justify-center bg-gradient-to-br",
+                    "w-11 h-11 rounded-xl flex items-center justify-center bg-linear-to-br",
                     gradient,
-                    "border border-white/10"
+                    "border border-white/10",
                   )}
                 >
                   <Icon size={20} className="text-white" />

@@ -12,6 +12,37 @@ interface SectionHeadingProps {
   className?: string;
 }
 
+function WordBlurReveal({
+  text,
+  delay = 0,
+  className,
+}: {
+  text: string;
+  delay?: number;
+  className?: string;
+}) {
+  return (
+    <>
+      {text.split(" ").map((word, i) => (
+        <motion.span
+          key={`${word}-${i}`}
+          initial={{ opacity: 0, y: 14, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{
+            duration: 0.65,
+            delay: delay + i * 0.055,
+            ease: [0.21, 0.47, 0.32, 0.98],
+          }}
+          className={cn("inline-block mr-[0.26em] last:mr-0", className)}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </>
+  );
+}
+
 export function SectionHeading({
   eyebrow,
   title,
@@ -26,40 +57,43 @@ export function SectionHeading({
     right: "items-end text-right",
   }[align];
 
+  const baseTitleDelay = eyebrow ? 0.15 : 0;
+
   return (
-    <div className={cn("flex flex-col gap-4", alignClass, className)}>
+    <div className={cn("flex flex-col gap-5", alignClass, className)}>
       {eyebrow && (
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-xs font-semibold tracking-widest text-indigo-300 uppercase"
         >
-          <span className="w-1 h-1 rounded-full bg-indigo-400" />
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
           {eyebrow}
         </motion.div>
       )}
 
-      <motion.h2
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: eyebrow ? 0.1 : 0 }}
-        className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight"
-      >
-        {title}{" "}
+      <h2 className="text-display text-white leading-none">
+        <WordBlurReveal text={title} delay={baseTitleDelay} />
         {titleHighlight && (
-          <span className="gradient-text">{titleHighlight}</span>
+          <>
+            {" "}
+            <WordBlurReveal
+              text={titleHighlight}
+              delay={baseTitleDelay + title.split(" ").length * 0.055}
+              className="gradient-text"
+            />
+          </>
         )}
-      </motion.h2>
+      </h2>
 
       {description && (
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
           className={cn(
             "text-base md:text-lg text-zinc-400 leading-relaxed",
             align === "center" && "max-w-2xl"
