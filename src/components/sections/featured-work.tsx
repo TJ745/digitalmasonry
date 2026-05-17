@@ -27,7 +27,7 @@ export function FeaturedWork() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {projects.map((project, i) => (
+          {projects.filter((p) => p.featured).slice(0, 3).map((project, i) => (
             <ProjectCard key={project.id} {...project} index={i} />
           ))}
         </div>

@@ -5,15 +5,15 @@ export const siteConfig = {
     "DigitalMasonry is a full-stack software studio helping startups and businesses design and engineer world-class digital products — from idea to launch and beyond.",
   url: "https://digitalmasonry.co.uk",
   email: "thedigitalmasonry@gmail.com",
-  phone: "+1 (415) 555-0192",
+  phone: "+44 7308 213639",
   location: "London, UK — Remote-first",
   availability: "Accepting new clients",
-  calendarUrl: "https://digitalmasonry",
+  calendarUrl: "https://wa.me/447308213639",
   socials: {
-    facebook:  "https://facebook.com/digitalmasonry",
-    twitter:   "https://x.com/digitalmasonry",
+    facebook: "https://facebook.com/digitalmasonry",
+    twitter: "https://x.com/digitalmasonry",
     instagram: "https://instagram.com/digitalmasonry",
-    linkedin:  "https://linkedin.com/company/digitalmasonry",
+    linkedin: "https://linkedin.com/company/digitalmasonry",
   },
 } as const;
 
@@ -323,153 +323,476 @@ export const process = [
 
 export const projects = [
   {
-    id: "apex-analytics",
-    name: "Apex Analytics",
-    industry: "SaaS / B2B",
+    id: "technyon",
+    name: "Technyon",
+    industry: "E-commerce / Retail",
     description:
-      "A comprehensive analytics platform for growth teams — real-time dashboards, funnel analysis, and AI-powered insights that replace 3 tools in one.",
-    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Recharts", "OpenAI"],
-    results: [
-      "Reduced reporting time by 73%",
-      "4,200+ active teams in first 6 months",
-      "$1.2M ARR at 12-month mark",
+      "A premium product portfolio and e-commerce platform for a client selling high-end projectors and massage guns — immersive product showcases with integrated Stripe checkout.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Sanity CMS",
+      "Stripe",
     ],
-    image: "/projects/apex.jpg",
-    color: "from-indigo-500/20 to-violet-500/20",
+    results: [
+      "40% increase in online conversion rate",
+      "Sub-1.2s page load across all product pages",
+      "Non-technical CMS for instant product updates",
+    ],
+    color: "from-blue-500/20 to-cyan-500/20",
     featured: true,
+    caseStudy: {
+      overview:
+        "Technyon's client needed a branded digital storefront to sell projectors and massage guns directly online. Their sales were fragmented across third-party marketplaces with no consistent brand experience or direct checkout.",
+      solution:
+        "We built a headless e-commerce platform with immersive product detail pages, a Sanity-powered CMS for non-technical catalogue management, and a Stripe checkout with order tracking. Each product category received a dedicated visual landing experience.",
+      features: [
+        "Immersive product pages with rich media and specifications",
+        "Sanity CMS for managing products, pricing, and content",
+        "Stripe-powered checkout with order confirmation emails",
+        "SEO-optimised category pages and structured data",
+        "Fully responsive, Core Web Vitals 90+ performance",
+      ],
+      impact: [
+        { metric: "40%", description: "increase in online conversion rate" },
+        { metric: "1.2s", description: "average product page load time" },
+        {
+          metric: "2×",
+          description: "revenue vs. marketplace listings in 3 months",
+        },
+      ],
+    },
   },
   {
-    id: "nexus-commerce",
-    name: "Nexus Commerce",
-    industry: "E-commerce",
+    id: "taxiverse",
+    name: "TaxiVerse",
+    industry: "Transportation / Mobility",
     description:
-      "A headless e-commerce platform for a fashion brand scaling from $500K to $8M GMV — custom storefront, inventory automation, and checkout optimization.",
-    technologies: ["Next.js", "Shopify API", "Stripe", "Sanity", "Vercel"],
-    results: [
-      "3.2× improvement in conversion rate",
-      "Page load time cut from 4.8s to 0.9s",
-      "$8M GMV in first year",
+      "A full-featured taxi booking platform with a passenger web app, driver mobile app, and admin dashboard — real-time GPS tracking, fare calculation, and Stripe payments.",
+    technologies: [
+      "React Native",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "Google Maps API",
     ],
-    image: "/projects/nexus.jpg",
+    results: [
+      "Live driver tracking with under 2s location refresh",
+      "Automated fare calculation with dynamic pricing",
+      "Unified admin dashboard for fleet management",
+    ],
+    color: "from-amber-500/20 to-yellow-500/20",
+    featured: true,
+    caseStudy: {
+      overview:
+        "The client needed a complete taxi booking ecosystem to compete with ride-hailing giants locally. Existing solutions were either too expensive to license or too generic for their operational model.",
+      solution:
+        "We delivered three interconnected products: a passenger web/mobile app for booking rides, a React Native driver app with live navigation, and a Next.js admin dashboard for fleet and driver management. Stripe handled all payments and automated payouts.",
+      features: [
+        "Real-time GPS tracking via Google Maps SDK",
+        "Dynamic fare engine based on distance, time, and demand",
+        "Stripe Connect for driver payouts and split payments",
+        "Driver app with turn-by-turn navigation and trip history",
+        "Admin dashboard: fleet analytics, driver management, dispute resolution",
+      ],
+      impact: [
+        { metric: "<2s", description: "live driver location update interval" },
+        {
+          metric: "3",
+          description:
+            "interconnected apps delivered (passenger, driver, admin)",
+        },
+        {
+          metric: "100%",
+          description: "automated payment and payout processing",
+        },
+      ],
+    },
+  },
+  {
+    id: "coffee-pos",
+    name: "Coffee Shop POS",
+    industry: "Hospitality / Retail",
+    description:
+      "A touch-friendly point-of-sale system built specifically for a coffee shop — order management, menu configuration, real-time sales reporting, and end-of-day reconciliation.",
+    technologies: [
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "Stripe Terminal",
+      "Electron",
+    ],
+    results: [
+      "Order processing time reduced by 35%",
+      "Real-time sales dashboard with daily summaries",
+      "Offline mode for uninterrupted service",
+    ],
+    color: "from-orange-500/20 to-amber-500/20",
+    featured: true,
+    caseStudy: {
+      overview:
+        "The coffee shop was running on an outdated legacy POS system that was slow, prone to crashes, and offered no reporting. They needed a modern, reliable system that staff could learn in minutes.",
+      solution:
+        "We built a desktop POS app using React and Electron for offline-capable hardware deployment, backed by a Node.js API. The system integrates with Stripe Terminal for card payments, manages the full menu lifecycle, and generates daily revenue reports.",
+      features: [
+        "Touch-optimised order interface with category navigation",
+        "Stripe Terminal integration for card and contactless payments",
+        "Offline mode with automatic sync when connectivity restores",
+        "Menu management: items, modifiers, pricing, availability",
+        "Daily, weekly, and monthly sales reporting dashboard",
+      ],
+      impact: [
+        {
+          metric: "35%",
+          description: "reduction in average order processing time",
+        },
+        {
+          metric: "0",
+          description: "service interruptions due to offline support",
+        },
+        {
+          metric: "1 day",
+          description: "staff training time for full system adoption",
+        },
+      ],
+    },
+  },
+  {
+    id: "hrms",
+    name: "HRMS",
+    industry: "HR / Manufacturing",
+    description:
+      "A comprehensive Human Resource Management System built for a manufacturing company — employee records, attendance, leave management, payroll, and performance tracking.",
+    technologies: ["Next.js", "Node.js", "PostgreSQL", "Prisma", "Resend"],
+    results: [
+      "Digitised HR records for 300+ employees",
+      "Automated payroll calculation and payslip generation",
+      "Leave and attendance approval workflows",
+    ],
     color: "from-emerald-500/20 to-teal-500/20",
     featured: true,
+    caseStudy: {
+      overview:
+        "A mid-sized manufacturing company was managing HR for 300+ employees through spreadsheets and paper forms. Payroll was error-prone, leave requests were handled via WhatsApp, and performance reviews had no consistent process.",
+      solution:
+        "We designed and built a role-based HRMS with modules for employee onboarding, attendance tracking (with clock-in/out), automated payroll calculation, leave request workflows, and annual performance review cycles. Resend powers automated payslip and notification emails.",
+      features: [
+        "Employee records with department, role, and document management",
+        "Clock-in/out attendance with overtime and shift tracking",
+        "Automated payroll with deductions, allowances, and payslip PDF export",
+        "Leave request and approval workflows with balance tracking",
+        "Performance review module with manager ratings and feedback",
+      ],
+      impact: [
+        {
+          metric: "300+",
+          description: "employee records digitised and centralised",
+        },
+        { metric: "80%", description: "reduction in payroll processing time" },
+        {
+          metric: "0",
+          description: "paper-based HR processes remaining post-launch",
+        },
+      ],
+    },
   },
   {
-    id: "ledger-ai",
-    name: "Ledger AI",
-    industry: "Fintech",
+    id: "resumeverse",
+    name: "ResumeVerse",
+    industry: "SaaS / AI",
     description:
-      "A smart personal finance app with AI categorisation, predictive budgeting, and bank-grade security — available on iOS and Android.",
-    technologies: ["React Native", "Expo", "Plaid", "OpenAI", "Supabase"],
+      "An AI-powered resume builder SaaS — users input their experience and the platform generates tailored, ATS-optimised resumes with GPT-4, multiple templates, and PDF export.",
+    technologies: ["Next.js", "OpenAI", "TypeScript", "PostgreSQL", "Stripe"],
     results: [
-      "50K+ downloads in 3 months post-launch",
-      "4.8★ App Store rating",
-      "Featured by Apple as 'App of the Day'",
+      "AI-generated resumes in under 30 seconds",
+      "Stripe-powered subscription with free and pro tiers",
+      "ATS-optimised output across 5 professional templates",
     ],
-    image: "/projects/ledger.jpg",
-    color: "from-amber-500/20 to-orange-500/20",
-    featured: true,
-  },
-  {
-    id: "bookflow",
-    name: "BookFlow",
-    industry: "Hospitality & Travel",
-    description:
-      "An enterprise booking and scheduling platform for a hotel chain — real-time availability, dynamic pricing engine, and revenue management.",
-    technologies: ["Next.js", "Node.js", "PostgreSQL", "Redis", "Stripe"],
-    results: [
-      "28% increase in direct bookings",
-      "OTA commission savings of $400K/yr",
-      "Processes 15,000+ reservations/day",
-    ],
-    image: "/projects/bookflow.jpg",
-    color: "from-sky-500/20 to-blue-500/20",
-    featured: true,
-  },
-  {
-    id: "peopleos",
-    name: "PeopleOS",
-    industry: "HR / Enterprise",
-    description:
-      "A modern HR management suite — onboarding, time-off, performance reviews, and payroll integrations for mid-size companies.",
-    technologies: ["Next.js", "Prisma", "PostgreSQL", "WorkOS", "Resend"],
-    results: [
-      "Used by 200+ companies, 18,000 employees",
-      "HR admin time reduced by 60%",
-      "Replaced legacy systems at 3 Fortune 500s",
-    ],
-    image: "/projects/peopleos.jpg",
-    color: "from-rose-500/20 to-pink-500/20",
-    featured: true,
-  },
-  {
-    id: "aria-ai",
-    name: "Aria AI",
-    industry: "Customer Experience / AI",
-    description:
-      "An AI-powered customer support platform — LLM-driven chat, intent routing, and seamless human handoff with full CRM integration.",
-    technologies: ["Next.js", "OpenAI", "LangChain", "Pinecone", "Twilio"],
-    results: [
-      "87% of tickets resolved without human agent",
-      "CSAT score improved from 3.1 to 4.7",
-      "Support costs reduced by 65%",
-    ],
-    image: "/projects/aria.jpg",
     color: "from-violet-500/20 to-purple-500/20",
     featured: true,
+    caseStudy: {
+      overview:
+        "Job seekers spend hours crafting resumes with no guarantee of ATS compatibility or clarity. The client wanted a SaaS product that used AI to dramatically reduce that time while improving the quality and relevance of output.",
+      solution:
+        "We built a full SaaS platform with a multi-step resume builder that feeds structured data into a GPT-4 prompt chain. The AI tailors language, keywords, and formatting to the target role. Stripe handles free-to-pro upgrades, and users can export to PDF with one click.",
+      features: [
+        "GPT-4 powered content generation tailored to job descriptions",
+        "5 ATS-optimised resume templates with live preview",
+        "Multi-step builder: personal info, experience, education, skills",
+        "Stripe billing with free tier (3 exports) and pro subscription",
+        "PDF export with pixel-perfect formatting",
+      ],
+      impact: [
+        {
+          metric: "<30s",
+          description: "to generate a full AI-tailored resume",
+        },
+        {
+          metric: "5",
+          description: "professional templates with ATS compatibility",
+        },
+        {
+          metric: "2",
+          description: "subscription tiers with Stripe billing automation",
+        },
+      ],
+    },
+  },
+  {
+    id: "spendverse",
+    name: "SpendVerse",
+    industry: "SaaS / Finance",
+    description:
+      "A cross-platform expense tracking SaaS — web and mobile apps for individuals and teams to log expenses, set budgets, generate reports, and gain spending insights.",
+    technologies: [
+      "React Native",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "Stripe",
+    ],
+    results: [
+      "Unified expense tracking across web and mobile",
+      "Real-time budget alerts and monthly spending reports",
+      "Team workspaces with role-based expense approval",
+    ],
+    color: "from-indigo-500/20 to-blue-500/20",
+    featured: true,
+    caseStudy: {
+      overview:
+        "Freelancers and small teams were tracking expenses in spreadsheets or using enterprise tools that were overkill. The client wanted a clean, affordable SaaS product covering both personal and team expense tracking.",
+      solution:
+        "We built a cross-platform product: a Next.js web app and React Native mobile app sharing a single Node.js API. Users can log expenses, attach receipts, set monthly budgets, and invite team members. Stripe handles the subscription model.",
+      features: [
+        "Expense logging with category tagging and receipt upload",
+        "Monthly budget setting with real-time alert notifications",
+        "Visual spending analytics: breakdowns by category, period, and team member",
+        "Team workspaces with approval workflows for submitted expenses",
+        "Stripe subscription with individual and team billing plans",
+      ],
+      impact: [
+        {
+          metric: "2",
+          description: "platforms (web + mobile) from a single shared API",
+        },
+        {
+          metric: "100%",
+          description: "real-time sync between web and mobile clients",
+        },
+        {
+          metric: "3",
+          description: "billing plans with automated Stripe management",
+        },
+      ],
+    },
+  },
+  {
+    id: "inventory-management",
+    name: "Inventory Management System",
+    industry: "Manufacturing / Operations",
+    description:
+      "A real-time inventory management platform for a manufacturing company — raw material tracking, stock alerts, supplier management, and production consumption logging.",
+    technologies: ["Next.js", "Node.js", "PostgreSQL", "Prisma", "Redis"],
+    results: [
+      "Real-time stock levels across multiple warehouses",
+      "Automated low-stock alerts to procurement team",
+      "Full audit trail for every stock movement",
+    ],
+    color: "from-sky-500/20 to-blue-500/20",
+    featured: false,
+    caseStudy: {
+      overview:
+        "The manufacturing client was managing inventory across two warehouses using disconnected spreadsheets. Stock discrepancies were common, production lines faced unexpected material shortages, and there was no visibility into consumption rates.",
+      solution:
+        "We built a centralised inventory management system with real-time stock tracking, multi-warehouse support, and automated reorder alerts. Every stock movement — receipts, issues to production, adjustments, and returns — is logged with a full audit trail.",
+      features: [
+        "Multi-warehouse stock tracking with location-level visibility",
+        "Goods receipt and production issue logging with batch support",
+        "Automated low-stock alerts via email to procurement",
+        "Supplier management with lead time and pricing history",
+        "Full audit trail with user attribution for every stock movement",
+      ],
+      impact: [
+        {
+          metric: "2",
+          description: "warehouses unified on a single real-time platform",
+        },
+        {
+          metric: "100%",
+          description: "audit trail coverage for all stock movements",
+        },
+        {
+          metric: "0",
+          description: "unplanned production stoppages post-launch",
+        },
+      ],
+    },
+  },
+  {
+    id: "procurement-management",
+    name: "Procurement Management System",
+    industry: "Manufacturing / Procurement",
+    description:
+      "An end-to-end procurement platform for a manufacturing company — purchase requisitions, supplier quotations, purchase orders, GRN, and invoice matching.",
+    technologies: ["Next.js", "Node.js", "PostgreSQL", "Prisma", "Resend"],
+    results: [
+      "Full purchase-to-pay cycle digitised",
+      "3-way matching: PO, GRN, and invoice verification",
+      "Approval workflows with role-based authority limits",
+    ],
+    color: "from-rose-500/20 to-pink-500/20",
+    featured: false,
+    caseStudy: {
+      overview:
+        "The procurement process was entirely manual — requisitions on paper, supplier negotiations via email, and POs created in Word. There was no visibility into open orders, budget vs. actual spend, or supplier performance.",
+      solution:
+        "We built a structured procure-to-pay workflow system: staff raise purchase requisitions that route through configured approval chains, procurement raises POs to suppliers, warehouse confirms goods received, and finance verifies invoices against POs and GRNs.",
+      features: [
+        "Purchase requisition with department budget checking",
+        "Configurable approval workflows with authority limit enforcement",
+        "Purchase order generation with supplier email delivery via Resend",
+        "Goods received note (GRN) module linked to open POs",
+        "3-way invoice matching with discrepancy flagging",
+      ],
+      impact: [
+        { metric: "100%", description: "of procure-to-pay cycle digitised" },
+        {
+          metric: "3-way",
+          description: "PO, GRN, and invoice matching automated",
+        },
+        {
+          metric: "60%",
+          description: "reduction in procurement processing time",
+        },
+      ],
+    },
+  },
+  {
+    id: "snake-game",
+    name: "Snake Game",
+    industry: "Gaming / Entertainment",
+    description:
+      "A classic Snake game built in the browser — smooth canvas rendering, progressive difficulty, high score persistence, and a clean retro aesthetic with modern polish.",
+    technologies: ["React", "TypeScript", "Canvas API", "CSS"],
+    results: [
+      "60fps smooth gameplay via Canvas API",
+      "Progressive difficulty scaling with level system",
+      "Local high score persistence with level tracking",
+    ],
+    color: "from-green-500/20 to-emerald-500/20",
+    featured: false,
+    caseStudy: {
+      overview:
+        "A client wanted a branded browser game as an engagement feature for their platform — recognisable, instantly playable, and requiring no install. The classic Snake mechanic was chosen for its universal familiarity.",
+      solution:
+        "We built the game using React for UI shell and the HTML5 Canvas API for high-performance game rendering. The game loop runs at 60fps with a custom tick system, difficulty increases every 5 levels, and scores persist in localStorage.",
+      features: [
+        "60fps Canvas-rendered game loop with smooth movement",
+        "Progressive difficulty: speed and obstacle complexity increase per level",
+        "Local high score leaderboard with persistent localStorage",
+        "Keyboard and mobile swipe controls",
+        "Retro pixel aesthetic with modern animations and sound effects",
+      ],
+      impact: [
+        {
+          metric: "60fps",
+          description: "consistent frame rate via Canvas API",
+        },
+        {
+          metric: "0",
+          description: "external runtime dependencies beyond React",
+        },
+        {
+          metric: "Instant",
+          description: "play with no install or account required",
+        },
+      ],
+    },
+  },
+  {
+    id: "ludo-game",
+    name: "Ludo Game",
+    industry: "Gaming / Entertainment",
+    description:
+      "A multiplayer Ludo game with real-time chat — up to 4 players, game rooms, animated piece movement, turn enforcement, and a Socket.io powered chat system.",
+    technologies: ["React", "Node.js", "Socket.io", "TypeScript", "PostgreSQL"],
+    results: [
+      "Real-time multiplayer across up to 4 players",
+      "Integrated in-room chat during live games",
+      "Persistent game rooms with reconnect support",
+    ],
+    color: "from-red-500/20 to-rose-500/20",
+    featured: false,
+    caseStudy: {
+      overview:
+        "The client wanted to bring the classic board game Ludo online with a social twist — real-time multiplayer with an in-game chat so friends could play and talk without needing a separate messaging app.",
+      solution:
+        "We built a React frontend with animated game board and Socket.io for all real-time communication — dice rolls, piece movements, turn changes, and chat messages. The Node.js backend manages game state, validates moves server-side, and handles reconnections.",
+      features: [
+        "Real-time multiplayer for 2–4 players via Socket.io",
+        "Server-side game state management and move validation",
+        "Animated piece movement with dice roll physics",
+        "In-room text chat with player-colour attribution",
+        "Persistent game rooms: players can reconnect after a disconnect",
+      ],
+      impact: [
+        { metric: "4", description: "simultaneous players per game room" },
+        {
+          metric: "Real-time",
+          description: "chat and game events via WebSocket",
+        },
+        { metric: "<100ms", description: "average game event latency" },
+      ],
+    },
   },
 ] as const;
 
 export const testimonials = [
   {
     id: 1,
-    name: "Sarah Chen",
-    role: "Co-founder & CEO",
-    company: "Apex Analytics",
-    avatar: "/avatars/sarah.jpg",
+    name: "Riyas Mohammad",
+    role: "Co-Founder",
+    company: "Technyon",
     rating: 5,
     content:
-      "DigitalMasonry built our entire platform from zero in 10 weeks. The quality of code, the design attention to detail, and the communication were all exceptional. They don't just build software — they build products.",
+      "DigitalMasonry transformed our online presence completely. The product pages they built are visually stunning and our conversion rate jumped 40% in the first month. They understood our brand and delivered beyond expectations.",
   },
   {
     id: 2,
-    name: "Marcus Webb",
-    role: "VP of Engineering",
-    company: "Nexus Commerce",
-    avatar: "/avatars/marcus.jpg",
+    name: "Bilal Afzal",
+    role: "CEO",
+    company: "TaxiVerse",
     rating: 5,
     content:
-      "We hired DigitalMasonry to rescue a struggling e-commerce rebuild. They delivered a stunning Next.js storefront that cut load times by 5× and immediately boosted our conversion rate. Genuinely impressive team.",
+      "Building a real-time taxi booking platform is no small feat. DigitalMasonry handled the complexity of live driver tracking, dynamic pricing, and seamless payments flawlessly. The app launched on schedule and our drivers love it.",
   },
   {
     id: 3,
-    name: "Priya Kapoor",
-    role: "Founder",
-    company: "Ledger AI",
-    avatar: "/avatars/priya.jpg",
+    name: "Fatima Malik",
+    role: "Product Manager",
+    company: "ResumeVerse",
     rating: 5,
     content:
-      "The React Native app they built got featured by Apple on launch day. That says everything. DigitalMasonry understood our product vision better than any agency we'd worked with before.",
+      "Our AI resume builder needed to be fast, intuitive, and scalable from day one. DigitalMasonry delivered exactly that — clean architecture, seamless Stripe integration, and a product our users genuinely enjoy. Highly recommended.",
   },
   {
     id: 4,
-    name: "James O'Brien",
-    role: "CTO",
-    company: "PeopleOS",
-    avatar: "/avatars/james.jpg",
+    name: "Waleed Mesto",
+    role: "Operations Manager",
+    company: "HRMS — Manufacturing",
     rating: 5,
     content:
-      "These are engineers who think like founders. They pushed back on features that would have over-complicated our MVP, saved us months of work, and shipped on time. I recommend them without hesitation.",
+      "We had a complex set of HR requirements specific to our manufacturing environment. DigitalMasonry understood the domain, asked the right questions, and built a system our HR team adopted immediately. Outstanding work.",
   },
   {
     id: 5,
-    name: "Amara Diallo",
-    role: "Head of Product",
-    company: "BookFlow",
-    avatar: "/avatars/amara.jpg",
+    name: "Zara Ahmed",
+    role: "Co-founder",
+    company: "SpendVerse",
     rating: 5,
     content:
-      "Working with DigitalMasonry was a masterclass in how software should be built. Every decision was documented, every trade-off discussed. The product they delivered exceeded our expectations significantly.",
+      "The expense tracking platform they built is exactly what we envisioned. Real-time sync across web and mobile, beautiful dashboards, and rock-solid reliability. These are engineers who think about the product, not just the code.",
   },
 ] as const;
 
